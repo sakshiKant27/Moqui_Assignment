@@ -8,11 +8,7 @@
         <field name="partyTypeEnumId" type="id"/>
         <relationship type="one-nofk" related="moqui.party.Person"/>
         <relationship type="one-nofk" related="moqui.party.Organization"/>
-        <!--        <relationship type="one" related="moqui.party.PartyType">-->
-        <!--            <key-map field-name="partyTypeId" related="partyTypeId"/>-->
-        <!--        </relationship>-->
-        <!--        <relationship type="many" related="moqui.party.PartyRole">-->
-        <!--            <key-map field-name="partyId"/></relationship>-->
+       
         <relationship type="one" related="moqui.basic.Enumeration" title="PartyType">
             <key-map field-name="partyTypeEnumId" />
         </relationship>
@@ -38,24 +34,7 @@
         <relationship type="one" related="moqui.party.PartyEntity"/>
     </entity>
 
-    <entity entity-name="PartyRole" package="moqui.party">
-        <field name="partyId" type="id" is-pk="true"/>
-        <field name="roleTypeId" type= "id" is-pk="true"/>
-        <relationship type="many" related="moqui.party.PartyEntity"/>
-        <relationship type="one" related="moqui.party.RoleType"/>
-<!--        <relationship type="one" related="moqui.Party.PartyRelation">-->
-<!--            <key-map field-name="partyId" related="partyId"/>-->
-<!--        </relationship>-->
-<!--        <relationship type="one" related="moqui.Party.RoleType">-->
-<!--            <key-map field-name="roleTypeId" related="roleTypeId"/>-->
-<!--        </relationship>-->
-<!--        <seed-data>-->
-<!--            <moqui.basic.EnumerationType description="Party Role" enumTypeId="PartyType"/>-->
-<!--            <moqui.basic.Enumeration description="Person" enumId="PtyPerson" enumTypeId="PartyType" />-->
-<!--            <moqui.basic.Enumeration description="Organization" enumId="PtyOrganization" enumTypeId="PartyType" />-->
-<!--        </seed-data>-->
-
-    </entity>
+    
     <entity entity-name="PartyRole" package="moqui.party" no-update-stamp="false">
         <!--        <field name="partyRoleId" type="id" is-pk="true"/>-->
         <field name="partyId" type="id" is-pk="true"/>
