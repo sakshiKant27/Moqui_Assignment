@@ -1,0 +1,119 @@
+    <screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd"
+            require-authentication="anonymous-all"  default-menu-title="Applications">
+
+        <transition name="createParty">
+            <service-call name="create#moqui.party.PartyEntity"/>
+            <default-response url="."/>
+        </transition>
+        <transition name="updateParty">
+            <service-call name="update#moqui.party.PartyEntity"/>
+            <default-response type="none"/>
+        </transition>
+        <transition name="deleteParty">
+            <service-call name="delete#moqui.party.PartyEntity"/>
+            <default-response type="none"/>
+        </transition>
+
+        <transition name="createPerson">
+            <service-call name="create#moqui.party.Person"/>
+            <default-response type="none"/>
+        </transition>
+        <transition name="updatePerson">
+            <service-call name="update#moqui.party.Person"/>
+            <default-response type="none"/>
+        </transition>
+        <transition name="deletePerson">
+            <service-call name="delete#moqui.party.Person"/>
+            <default-response type="none"/>
+        </transition>
+    <!--    <pre-actions>-->
+    <!--            <entity-find entity-name="moqui.party.PartyEntity" list="partyEntity">-->
+    <!--            </entity-find>-->
+    <!--    </pre-actions>-->
+        <widgets>
+            <container-box>
+                <box-header>
+                    <label text="Party operation"/>
+                </box-header>
+               <box-body-nopad>
+<!--               <container-row>-->
+<!--               <row-col>-->
+                        <container-dialog id="UpdateParty" button-text="Update Party">
+                            <form-single name="Updateparty" transition="updateParty">
+                                <auto-fields-entity entity-name="PartyEntity" field-type="edit"/>
+                                <field name="submitButton">
+                                    <default-field title="Update"><submit/></default-field>
+                                </field>
+                            </form-single>
+                        </container-dialog>
+<!--               </row-col>-->
+<!--               <row-col>-->
+
+               <container-dialog id="CreateParty" button-text="New Party">
+                   <form-single name="CreateParty" transition="createParty">
+                       <auto-fields-entity entity-name="PartyEntity" field-type="edit"/>
+                       <field name="submitButton">
+                           <default-field title="Create"><submit/></default-field>
+                       </field>
+                   </form-single>
+               </container-dialog>
+    <!--           <box-body>-->
+    <!--               <form-list name="PartyList" list="partyEntity">-->
+    <!--               </form-list>-->
+    <!--           </box-body>-->
+<!--               </row-col>-->
+<!--                   <row-col>-->
+                   <container-dialog id="DeleteParty" button-text="DeleteParty">
+                       <form-single name="DeleteParty" transition="deleteParty">
+                           <auto-fields-entity entity-name="PartyEntity" field-type="edit"/>
+                           <field name="submitButton">
+                               <default-field title="Delete"><submit/></default-field>
+                           </field>
+                       </form-single>
+                   </container-dialog>
+<!--                   </row-col>-->
+           </box-body-nopad>
+            </container-box>
+
+
+    <!--      Person-->
+            <container-box>
+                    <box-header>
+                        <label text="Person operation"  ></label>
+                    </box-header>
+                    <box-body-nopad>
+                    <container-dialog id="CreatePerson" button-text="Create person">
+                        <form-single name="CreatePerson" transition="createPerson">
+                            <auto-fields-entity entity-name="Person" field-type="edit"/>
+                            <field name="submitButton">
+                                <default-field title="Create"><submit/></default-field>
+                            </field>
+                        </form-single>
+                    </container-dialog>
+                    <container-dialog id="UpdatePerson" button-text="Update person">
+                        <form-single name="UpdatePerson" transition="updatePerson">
+                            <auto-fields-entity entity-name="Person" field-type="edit"/>
+                            <field name="submitButton">
+                                <default-field title="Update"><submit/></default-field>
+                            </field>
+                        </form-single>
+                    </container-dialog>
+                    <container-dialog id="deletePerson" button-text="Delete person">
+                        <form-single name="UpdatePerson" transition="deletePerson">
+<!--                            <auto-fields-entity entity-name="Person" field-type="edit" />-->
+                            <field name="partyId">
+                                <default-field title="partyid"><text-line/></default-field>
+                            </field>
+                            <field name="submitButton">
+                                <default-field title="Delete"><submit/></default-field>
+                            </field>
+                        </form-single>
+                    </container-dialog>
+
+                </box-body-nopad>
+<!--            </container-box>-->
+<!--        </ container-row>-->
+            </container-box>
+    </widgets>
+    </screen>
+
